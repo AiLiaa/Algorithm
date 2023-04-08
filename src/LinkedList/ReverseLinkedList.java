@@ -7,7 +7,7 @@ package LinkedList;
  *
  */
 
-public class FlipLinkedList {
+public class ReverseLinkedList {
     // 双指针法
     // 前驱和当前指针，temp临时保留cur的下一结点
     public static ListNode solution(ListNode head){
@@ -36,6 +36,19 @@ public class FlipLinkedList {
             cur = temp;
         }
         return dumpyHead.next;
+    }
+
+    public static ListNode solution3(ListNode head){
+        return reverse(null, head);
+    }
+
+    private static ListNode reverse(ListNode prev, ListNode cur) {
+        if (cur == null){
+            return prev;// 返回翻转后头结点
+        }
+        ListNode temp = cur.next;
+        cur.next = prev;// 翻转
+        return reverse(cur, temp);
     }
 
     public static void main(String[] args) {
