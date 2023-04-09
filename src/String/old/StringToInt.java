@@ -1,4 +1,4 @@
-package String;
+package String.old;
 
 /**
  * 剑指offer: 将一个字符串转换成一个整数(实现Integer.valueOf(string)的功能，
