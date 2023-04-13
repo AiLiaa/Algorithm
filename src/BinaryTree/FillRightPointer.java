@@ -39,12 +39,14 @@ class Node2 {
 public class FillRightPointer {
 
     /**
+     * 指针BFS 不借助队列
+     *
      * 根据 23层处理 4567层
      *          1
      *       2 -> 3
      *     4  5  6  7
      */
-    public Node2 solution(Node2 root) {
+    public Node2 solution1(Node2 root) {
         if (root == null) return root;
 
         Node2 left,right,cur,temp;
@@ -68,6 +70,50 @@ public class FillRightPointer {
                 cur = cur.next;
             }
             cur = temp.left;//下一层
+        }
+        return root;
+    }
+
+    // 递归
+    public Node2 solution2(Node2 root) {
+        dfs(root,null);
+        return root;
+    }
+    private void dfs(Node2 cur,Node2 next){
+        if (cur == null) return;
+        cur.next = next;
+        dfs(cur.left,cur.right);
+        dfs(cur.right,cur.next == null ? null : cur.next.left);
+    }
+
+    // 借助队列
+    public Node2 solution3(Node2 root) {
+        if (root == null) {
+            return root;
+        }
+        // 初始化队列同时将第一层节点加入队列中，即根节点
+        Queue<Node2> queue = new LinkedList<Node2>();
+        queue.add(root);
+        // 外层的 while 循环迭代的是层数
+        while (!queue.isEmpty()) {
+            // 记录当前队列大小
+            int size = queue.size();
+            // 遍历这一层的所有节点
+            for (int i = 0; i < size; i++) {
+                // 从队首取出元素
+                Node2 node = queue.poll();
+                // 连接
+                if (i < size - 1) {
+                    node.next = queue.peek();
+                }
+                // 拓展下一层节点
+                if (node.left != null) {
+                    queue.add(node.left);
+                }
+                if (node.right != null) {
+                    queue.add(node.right);
+                }
+            }
         }
         return root;
     }
