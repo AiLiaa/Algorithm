@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class Combine {
     public List<List<Integer>> res = new ArrayList<>();//存放结果集
-    public LinkedList<Integer> path = new LinkedList<>();//存放当结果
+    public LinkedList<Integer> path = new LinkedList<>();//存放当前结果
 
     public List<List<Integer>> solution(int n,int k){
         backtracking(n,k,1);
