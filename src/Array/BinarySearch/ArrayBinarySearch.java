@@ -28,7 +28,7 @@ package Array.BinarySearch;
  *
  * while (left <= right) 要使用 <= ，因为left == right是有意义的，所以使用 <=
  * if (nums[middle] > target) right 要赋值为 middle - 1，因为当前这个nums[middle]一定不是target，
- * 那么接下来要查找的左区间结束下标位置就是 middle - 1
+ * 那么接下来要查找的右区间结束下标位置就是 middle - 1
  *
  */
 
