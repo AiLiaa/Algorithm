@@ -21,6 +21,9 @@ import java.util.Arrays;
  * 根据prices可以得到每天的利润序列：(prices[i] - prices[i - 1]).....(prices[1] - prices[0])。
  * 收集正利润的区间，就是股票买卖的区间，而我们只需要关注最终利润，不需要记录区间。
  *
+ * 局部最优：收集每天的正利润，全局最优：求得最大利润。
+ * 局部最优可以推出全局最优，找不出反例，贪心
+ *
  */
 public class BestTimeBuySellStocksII {
 
