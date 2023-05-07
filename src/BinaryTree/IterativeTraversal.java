@@ -45,17 +45,19 @@ public class IterativeTraversal {
         while (!st.isEmpty() || cur != null){
             if (cur != null){ // 指针访问到最底下的左边
                 st.push(cur);
-                cur = cur.left;
+                cur = cur.left;//左
             }else {
+                //中
                 cur = st.pop();
                 res.add(cur.val);
+                //右
                 cur = cur.right;
             }
         }
         return res;
     }
 
-    // 后才序 左右中
+    // 后序 左右中
     public List<Integer> solution3(TreeNode root){
         List<Integer> res = new ArrayList<>();
         if (root == null){

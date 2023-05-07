@@ -13,6 +13,7 @@ import java.util.*;
  * 1 <= nums.length <= 15
  * -100 <= nums[i] <= 100
  *
+ *
  */
 public class IncrementalSubSequences {
     List<List<Integer>> res = new ArrayList<>();
@@ -29,6 +30,7 @@ public class IncrementalSubSequences {
             res.add(new ArrayList<>(path));
         }
 
+        // 在此定义used，因为used只记录本层元素是否重复使用，新的一层重置used
         int[] used = new int[201];// 使用数组来进行去重操作，题目说数值范围[-100, 100]
         for (int i = index; i < nums.length; i++) {
             if ((!path.isEmpty() && nums[i] < path.getLast())
