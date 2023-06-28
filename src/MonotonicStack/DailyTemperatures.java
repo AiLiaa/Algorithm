@@ -23,6 +23,7 @@ public class DailyTemperatures {
         int len = temperatures.length;
         int[] res = new int[len];
 
+        //栈存放数组下标
         Deque<Integer> stack = new LinkedList<>();
         stack.push(0);
 
@@ -30,6 +31,9 @@ public class DailyTemperatures {
             if (temperatures[i] <= temperatures[stack.peek()]){
                 stack.push(i);
             }else {
+                // 当栈顶元素小于temperatures[i]时
+                // temperatures[i]即为该栈顶元素的右边第一个更大元素
+                // 处理栈顶元素，并弹出
                 while (!stack.isEmpty() && temperatures[i] > temperatures[stack.peek()]){
                     res[stack.peek()] = i - stack.peek();
                     stack.pop();
