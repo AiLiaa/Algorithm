@@ -26,6 +26,7 @@ public class IsSubsequence {
         int len1 = s.length();
         int len2 = t.length();
 
+        //dp[i][j]表示 s[0,i - 1] 是否为 t[0,j - 1] 的子序列
         boolean[][] dp = new boolean[len1 + 1][len2 + 1];
 
         for (int i = 0; i < dp[0].length; i++) {
