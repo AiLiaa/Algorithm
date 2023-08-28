@@ -1,4 +1,4 @@
-package Sort;
+package Other.Sort;
 
 /**
  * 快排
